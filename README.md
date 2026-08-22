@@ -20,6 +20,11 @@ python calculator.py
 Four things are read from standard input, in this order: the first number, the second number, the
 operation, and a final line that dismisses the exit prompt.
 
+All four are required, including the last. An unattended run that supplies fewer than four lines
+waits at whichever prompt it reached for as long as standard input stays open, and raises
+`EOFError` once it closes — so omitting only the fourth line still prints the answer first and
+fails afterwards. Wrapping such a run in `timeout` is advisable.
+
 ## Operations
 
 The operation is matched case-insensitively against exactly these four words, spelled as the
