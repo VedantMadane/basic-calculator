@@ -9,8 +9,8 @@ elif (whatToDo == "SUBRACT"):
 elif (whatToDo == "MULTIPLY"):
 	print "The answer is ", (firstnumber * secondnumber)
 elif (whatToDo == "DIVIDE"):
-	print "The answer is ", ((firstnumber / secondnumber),  " with ", (firstnumber % secondnumber)), " left over."
+	print "The answer is ", (firstnumber / secondnumber), " with ", (firstnumber % secondnumber), " left over."
 else:
 	print "That wasn't an option."
 
-raw_input("\nAny key to exit.")
+raw_input("\nPress Enter to exit.")

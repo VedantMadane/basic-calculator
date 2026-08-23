@@ -53,32 +53,28 @@ three prompts appear on one line with no echoed answers:
 $ printf '6\n3\nadd\n\n' | python calculator.py
 What is the first number? What is the second number? Add, Subract, Multiply or Divide? The answer is  9.0
 
-Any key to exit.
+Press Enter to exit.
 ```
 
-The `Divide` branch currently prints its arguments as a tuple:
+The `Divide` branch additionally reports the remainder:
 
 ```
-$ printf '6\n3\ndivide\n\n' | python calculator.py
-What is the first number? What is the second number? Add, Subract, Multiply or Divide? The answer is  (2.0, ' with ', 0.0)  left over.
+$ printf '7\n2\ndivide\n\n' | python calculator.py
+What is the first number? What is the second number? Add, Subract, Multiply or Divide? The answer is  3.5  with  1.0  left over.
 
-Any key to exit.
+Press Enter to exit.
 ```
 
 ## Known limitations
 
 All of the following were reproduced under Python 2.7.18 and are tracked as issues:
 
-- The `Divide` branch prints a tuple `repr` rather than a sentence
-  ([#4](https://github.com/Stephenson-Software/basic-calculator/issues/4)).
 - A second number of `0` with `Divide` raises `ZeroDivisionError` instead of printing a message
   ([#5](https://github.com/Stephenson-Software/basic-calculator/issues/5)).
 - Non-numeric text at either number prompt raises `ValueError` and exits, with no chance to retry
   ([#6](https://github.com/Stephenson-Software/basic-calculator/issues/6)).
 - Both operands are floats, so `Divide` reports a true-division quotient *and* a float remainder —
   the same leftover twice ([#8](https://github.com/Stephenson-Software/basic-calculator/issues/8)).
-- `Any key to exit.` is inaccurate; the program waits for Enter
-  ([#9](https://github.com/Stephenson-Software/basic-calculator/issues/9)).
 
 ## License
 
